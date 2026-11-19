@@ -1,0 +1,126 @@
+/* ===== Nia Design v4 · rombo zapoteco, bordados, proyectos, proceso, preguntas y hero a pantalla completa ===== */
+:root{
+  --rombo-ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M6 0h2v2h2v2h2v2h2v2h-2v2h-2v2H8v2H6v-2H4v-2H2V8H0V6h2V4h2V2h2z' fill='%23ffcc29'/%3E%3Cpath d='M6 5h2v1h1v2H8v1H6V8H5V6h1z' fill='%231d1b19'/%3E%3C/svg%3E");
+  --greca-k:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16' viewBox='0 0 32 16'%3E%3Cpath d='M0 15h4v-4h4V7h4V3h8v4h4v4h4v4h4' fill='none' stroke='%231d1b19' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* Rombo escalonado en lugar del triángulo */
+.eyebrow::before{width:14px;height:14px;background:var(--rombo-ico) center/14px 14px no-repeat}
+
+/* Hero al 100% de la pantalla (menos barra de avisos y encabezado) */
+.hero .wrap{min-height:calc(100svh - 116px)}
+.hero .collage{max-height:none;height:calc(100svh - 116px);align-self:stretch}
+@media (max-width:980px){
+  .hero .wrap{min-height:calc(100svh - 102px)}
+  .hero .collage{height:auto;min-height:340px;flex:1}
+  .hero .wrap{display:flex;flex-direction:column}
+}
+
+/* Separador bordado */
+.ornament{display:flex;align-items:center;gap:14px;color:var(--carbon);margin:0 auto clamp(36px,4vw,56px);max-width:var(--max)}
+.ornament span{flex:1;height:0;border-top:1.5px dashed currentColor;opacity:.35}
+.ornament svg{width:96px;height:24px;flex:none;overflow:visible}
+.ornament .o-stitch{fill:none;stroke:currentColor;stroke-width:1.5;stroke-dasharray:3 3;opacity:.6}
+.ornament .o-knot{fill:var(--amarillo);stroke:currentColor;stroke-width:1}
+.ornament .o-dia{fill:var(--amarillo);stroke:currentColor;stroke-width:1.2}
+.ornament .o-core{fill:currentColor}
+.on-dark .ornament,.visit .ornament{color:#fbf7ef}
+.ornament--space{margin-top:clamp(56px,7vw,96px)}
+
+/* ---------- Proyectos ---------- */
+.projects{background:var(--crudo);padding-bottom:clamp(64px,8vw,112px);overflow:hidden}
+.projects-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(32px,4vw,52px)}
+.projects-top h2 em{font-style:italic;font-weight:350;background:linear-gradient(var(--amarillo),var(--amarillo)) 0 88%/100% .22em no-repeat}
+.projects-intro .lede{margin-bottom:24px}
+.obras{overflow:hidden;margin-bottom:clamp(48px,6vw,80px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.obras-track{display:flex;width:max-content;animation:nia-obras 60s linear infinite}
+.obras:hover .obras-track{animation-play-state:paused}
+.obras-set{display:flex;gap:18px;padding-right:18px}
+@keyframes nia-obras{to{transform:translateX(-50%)}}
+.obra{margin:0;width:clamp(240px,24vw,360px);position:relative;flex:none}
+.obra img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:brightness(.96);transition:filter .6s var(--ease)}
+.obra:hover img{filter:brightness(.78)}
+.obra figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;color:#fff;display:grid;gap:2px;background:linear-gradient(transparent,#1d1b19d9);transition:padding .45s var(--ease)}
+.obra:hover figcaption{padding-bottom:22px}
+.obra figcaption b{font:400 22px/1.1 var(--serif)}
+.obra figcaption span{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--amarillo)}
+.features{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.features li{padding:6px 24px 6px 0;display:grid;gap:8px;align-content:start}
+.features li+li{padding-left:24px;border-left:1.5px dashed #1d1b1940}
+.features b{font:400 40px/1 var(--serif);color:var(--carbon);display:flex;align-items:center;gap:10px}
+.features b::after{content:"";width:28px;height:2px;background:var(--amarillo)}
+.features strong{font-size:17px;font-weight:600}
+.features span{color:var(--muted);font-size:15px;line-height:1.5}
+@media (max-width:980px){.projects-top{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr;gap:28px 0}.features li:nth-child(3){padding-left:0;border-left:0}}
+@media (max-width:640px){.features{grid-template-columns:1fr}.features li,.features li+li{padding:0 0 22px;border-left:0;border-bottom:1.5px dashed #1d1b1930}}
+@media (prefers-reduced-motion:reduce){.obras-track{animation:none}}
+
+/* ---------- Materiales con textura tejida ---------- */
+.materials{border-top:0;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.material{background:#fff;border:1px solid var(--line);padding:0 0 22px!important;border-left:1px solid var(--line)!important;display:grid;gap:8px;transition:transform var(--t) var(--ease),box-shadow var(--t) var(--ease),border-color var(--t) var(--ease)}
+.material:hover{transform:translateY(-4px);border-color:var(--carbon);box-shadow:0 18px 34px -24px #1d1b1980}
+.material strong,.material p,.material em{padding:0 22px}
+.material strong{margin-top:16px}
+.material em{font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon-3)}
+.weave{display:block;height:120px;border-bottom:1px solid var(--line)}
+.weave--lana{background-color:#efe6d6;background-image:radial-gradient(circle at 50% 40%,#d8c9ae 0 3px,transparent 3.5px),radial-gradient(circle at 0 90%,#e3d6bf 0 3px,transparent 3.5px);background-size:12px 10px,12px 10px;background-position:0 0,6px 5px}
+.weave--yute{background-color:#c9a774;background-image:repeating-linear-gradient(45deg,#b48f58 0 3px,transparent 3px 9px),repeating-linear-gradient(-45deg,#d8bb8b 0 3px,transparent 3px 9px)}
+.weave--algodon{background-color:#fbfaf6;background-image:repeating-linear-gradient(0deg,#e4ded2 0 1px,transparent 1px 6px),repeating-linear-gradient(90deg,#ece6db 0 1px,transparent 1px 6px)}
+.material:hover .weave--lana{background-color:#ffe9a6}
+.material:hover .weave--yute{background-color:#ffcc29}
+.material:hover .weave--algodon{background-color:#fff6d1}
+.weave{transition:background-color .6s var(--ease)}
+@media (max-width:640px){.materials{grid-template-columns:1fr}.material{border-bottom:1px solid var(--line)!important}}
+
+/* ---------- Proceso: hilo que une los pasos ---------- */
+.steps-thread{position:relative;padding-top:34px!important}
+.steps-thread::before{content:"";position:absolute;left:0;right:0;top:15px;border-top:2px dashed #1d1b1959}
+.step{position:relative}
+.step-knot{position:absolute;top:-34px;left:0;width:32px;height:32px;display:grid;place-items:center;background:var(--amarillo);border:1.5px solid var(--carbon);transform:rotate(45deg);transition:background-color var(--t) var(--ease)}
+.step-knot b{transform:rotate(-45deg);font:600 11px/1 var(--sans);letter-spacing:.04em;color:var(--carbon)}
+.step:hover .step-knot{background:var(--carbon)}
+.step:hover .step-knot b{color:var(--amarillo)}
+.step-img{overflow:hidden;margin-top:14px}
+.step-img img{display:block;width:100%;aspect-ratio:1;object-fit:cover;transition:filter .6s var(--ease)}
+.step:hover .step-img img{filter:brightness(.82)}
+.step strong{background:linear-gradient(var(--amarillo),var(--amarillo)) 0 92%/0 7px no-repeat;transition:background-size var(--t) var(--ease);justify-self:start}
+.step:hover strong{background-size:100% 7px}
+.process .dyes{border-top:1.5px dashed #1d1b1930}
+@media (max-width:980px){.steps-thread::before{display:none}.step-knot{position:static;margin:0 0 4px 6px}.steps-thread{padding-top:0!important}}
+
+/* ---------- Preguntas frecuentes con bordado ---------- */
+.faq-band{position:relative;background:var(--crudo-2)}
+.faq-band::before,.faq-band::after{content:"";position:absolute;left:0;right:0;height:16px;background:var(--greca-k) 0 0/32px 16px repeat-x;opacity:.85}
+.faq-band::before{top:0}
+.faq-band::after{bottom:0;transform:scaleY(-1);background-position:16px 0}
+.faq-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,6vw,96px);align-items:start}
+.faq-side h2 em{font-style:italic;font-weight:350;background:linear-gradient(var(--amarillo),var(--amarillo)) 0 88%/100% .22em no-repeat}
+.faq-side .lede{margin-top:14px}
+.faq-card{margin-top:32px;padding:24px;background:#fff;border:1.5px dashed #1d1b1959;outline:6px solid #fff;display:grid;gap:8px}
+.faq-card strong{font:400 24px/1.15 var(--serif)}
+.faq-card span{color:var(--muted);font-size:15px;margin-bottom:10px}
+.faq-card .btn{justify-self:start}
+.faq-list{border-top:1.5px dashed #1d1b1959}
+.faq-item{border-bottom:1.5px dashed #1d1b1959}
+.faq-q{all:unset;box-sizing:border-box;display:grid;grid-template-columns:44px 1fr 28px;align-items:center;gap:12px;width:100%;padding:22px 0;cursor:pointer}
+.faq-q:focus-visible{outline:2px solid var(--carbon);outline-offset:4px}
+.faq-n{font:400 22px/1 var(--serif);color:var(--carbon-3);transition:color var(--t) var(--ease)}
+.faq-t{font-size:18px;font-weight:600;line-height:1.35;background:linear-gradient(var(--amarillo),var(--amarillo)) 0 92%/0 7px no-repeat;transition:background-size var(--t) var(--ease);justify-self:start}
+.faq-q:hover .faq-t{background-size:100% 7px}
+.faq-ico{width:20px;height:20px;justify-self:end;transition:transform .5s var(--ease)}
+.faq-ico svg{width:100%;height:100%;fill:transparent;stroke:var(--carbon);stroke-width:1.2;transition:fill .4s var(--ease)}
+.faq-item.is-open .faq-ico{transform:rotate(180deg)}
+.faq-item.is-open .faq-ico svg{fill:var(--amarillo)}
+.faq-item.is-open .faq-n{color:var(--carbon)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.faq-item.is-open .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{margin:0;padding:0 40px 24px 56px;color:var(--muted);font-size:16px;line-height:1.6;opacity:0;transform:translateY(-6px);transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.faq-item.is-open .faq-a p{opacity:1;transform:none;transition-delay:.08s}
+@media (max-width:980px){.faq-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.faq-q{grid-template-columns:34px 1fr 22px}.faq-t{font-size:16px}.faq-a p{padding:0 0 20px 46px}}
+@media (max-width:980px){
+  .hero .wrap{height:calc(100svh - 102px);min-height:600px}
+  .hero .collage{flex:1 1 0;min-height:0;height:auto;max-height:none}
+}
+.faq-band::after{display:none}

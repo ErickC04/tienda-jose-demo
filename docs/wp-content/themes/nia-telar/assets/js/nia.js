@@ -51,6 +51,25 @@
     track.appendChild(copy);
   });
 
+  /* Cinta de obras: duplica el set para un desplazamiento continuo */
+  $$('.obras-track').forEach(function (track) {
+    if (track.children.length > 1) return;
+    var copy = track.firstElementChild.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    $$('img', copy).forEach(function (i) { i.alt = ''; });
+    track.appendChild(copy);
+  });
+
+  /* Preguntas frecuentes: abrir y cerrar con animación suave (una a la vez) */
+  $$('[data-faq]').forEach(function (list) {
+    list.addEventListener('click', function (e) {
+      var btn = e.target.closest('.faq-q'); if (!btn) return;
+      var item = btn.closest('.faq-item'), open = !item.classList.contains('is-open');
+      $$('.faq-item', list).forEach(function (it) { it.classList.remove('is-open'); it.querySelector('.faq-q').setAttribute('aria-expanded', 'false'); });
+      if (open) { item.classList.add('is-open'); btn.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+
   /* ---------- Telar animado de la sección A medida ---------- */
   var loom = $('[data-loom]');
   if (loom) {
@@ -160,6 +179,9 @@
       });
     });
     resize();
+    /* Si el lienzo se midió antes de que cargaran los estilos, volver a medir */
+    if ('ResizeObserver' in window) { new ResizeObserver(function () { resize(); if (!running) draw(offset || 0.01); }).observe(canvas); }
+    window.addEventListener('load', function () { resize(); if (!running) draw(offset || 0.01); });
     if (reduce) { draw(T[4] + 0.5); }
     else {
       draw(0);

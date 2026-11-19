@@ -99,6 +99,17 @@ function nia_whatsapp_url( $text = '' ) {
 	return 'https://wa.me/' . $n . ( $text ? '?text=' . rawurlencode( $text ) : '' );
 }
 
+/** Separador bordado: línea · rombo escalonado zapoteco · línea */
+function nia_ornament( $class = '' ) {
+	$svg = '<svg viewBox="0 0 96 24" aria-hidden="true">'
+		. '<path class="o-stitch" d="M0 12h30M66 12h30"/>'
+		. '<path class="o-knot" d="M33 12l3-3 3 3-3 3zM57 12l3-3 3 3-3 3z"/>'
+		. '<path class="o-dia" d="M46 2h4v2h2v2h2v2h2v2h2v4h-2v2h-2v2h-2v2h-2v2h-4v-2h-2v-2h-2v-2h-2v-2h-2v-4h2V8h2V6h2V4h2z"/>'
+		. '<path class="o-core" d="M47 9h2v2h2v2h-2v2h-2v-2h-2v-2h2z"/>'
+		. '</svg>';
+	return '<div class="ornament ' . esc_attr( $class ) . '" aria-hidden="true"><span></span>' . $svg . '<span></span></div>';
+}
+
 /** Enlace de WhatsApp con mensaje (o '' si aún no hay número) */
 function nia_wa_link( $text = '' ) {
 	return nia_whatsapp_url( $text );

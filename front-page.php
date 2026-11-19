@@ -196,26 +196,41 @@ if ( function_exists( 'wc_get_products' ) ) {
 </section>
 
 <section class="projects section" id="proyectos" aria-labelledby="projects-title">
-	<div class="wrap">
-		<div class="projects-grid">
-			<div>
-				<p class="eyebrow">Arquitectos, interioristas y hoteles</p>
-				<h2 class="h-l" id="projects-title">Tapetes para proyectos</h2>
-				<p class="lede">Piezas de gran formato, series para hoteles y diseños a partir de tus planos o tu paleta. Trabajamos con despachos de arquitectura e interiorismo.</p>
-				<ul class="checklist">
-					<li>Muestras de color antes de tejer</li>
-					<li>Producción por volumen para series</li>
-					<li>Gran formato hasta 4.7 × 5.6 m</li>
-					<li>Factura (por confirmar)</li>
-				</ul>
-				<a class="btn" <?php echo nia_wa_attrs( $wa_p ); ?>>Cotizar un proyecto <span class="arrow">→</span></a>
-			</div>
-			<div class="projects-gallery">
-				<figure><img src="<?php echo esc_url( nia_img( 'tapete-organico-ambientado-sala.jpg' ) ); ?>" alt="Tapete de formas orgánicas en una sala" loading="lazy" width="460" height="575"><figcaption>Sala residencial</figcaption></figure>
-				<figure><img src="<?php echo esc_url( nia_img( 'tapete-ajedrez-mostaza-240x450.jpg' ) ); ?>" alt="Tapete de tablero mostaza de gran formato" loading="lazy" width="460" height="575"><figcaption>Gran formato 2.4 × 4.5 m</figcaption></figure>
-				<figure><img src="<?php echo esc_url( nia_img( 'tapete-300x500-diamantes-neutros.jpg' ) ); ?>" alt="Tapete de diamantes en tonos neutros de 3 × 5 m" loading="lazy" width="460" height="575"><figcaption>Pieza de 3 × 5 m</figcaption></figure>
-			</div>
+	<div class="wrap projects-top">
+		<div>
+			<p class="eyebrow">Arquitectos, interioristas y hoteles</p>
+			<h2 class="h-l" id="projects-title">Tapetes para <em>proyectos</em></h2>
 		</div>
+		<div class="projects-intro">
+			<p class="lede">Piezas de gran formato, series para hoteles y diseños a partir de tus planos o tu paleta. Trabajamos con despachos de arquitectura e interiorismo.</p>
+			<a class="btn" <?php echo nia_wa_attrs( $wa_p ); ?>>Cotizar un proyecto <span class="arrow">→</span></a>
+		</div>
+	</div>
+	<?php
+	$obras = array(
+		array( 'tapete-organico-ambientado-sala.jpg', 'Ya en casa', 'Lana · formas orgánicas' ),
+		array( 'tapete-ajedrez-mostaza-240x450.jpg', 'Tablero mostaza', '2.4 × 4.5 m' ),
+		array( 'tapete-300x500-diamantes-neutros.jpg', 'Rombos neutros', '3 × 5 m' ),
+		array( 'tapete-470x200-verde-olivo-rayas.jpg', 'Rayas verde olivo', '2 × 4.7 m' ),
+		array( 'tapete-gran-formato-terracota-taller.jpg', 'Terracota', 'Gran formato' ),
+		array( 'tapete-ovalado-azul-crudo-taller.jpg', 'Óvalo añil', '150 × 220 cm' ),
+	);
+	?>
+	<div class="obras" aria-label="Obras del taller">
+		<div class="obras-track"><div class="obras-set">
+			<?php foreach ( $obras as $o ) : ?>
+				<figure class="obra"><img src="<?php echo esc_url( nia_img( $o[0] ) ); ?>" alt="<?php echo esc_attr( $o[1] . ', ' . $o[2] ); ?>" loading="lazy" width="460" height="575"><figcaption><b><?php echo esc_html( $o[1] ); ?></b><span><?php echo esc_html( $o[2] ); ?></span></figcaption></figure>
+			<?php endforeach; ?>
+		</div></div>
+	</div>
+	<div class="wrap">
+		<?php echo nia_ornament(); // phpcs:ignore ?>
+		<ul class="features">
+			<li><b>01</b><strong>Muestras de color</strong><span>Antes de tejer, recibes la paleta en lana para aprobarla con tu cliente.</span></li>
+			<li><b>02</b><strong>Series y volumen</strong><span>Varias piezas iguales o una familia de diseños para todo un hotel.</span></li>
+			<li><b>03</b><strong>Hasta 4.7 × 5.6 m</strong><span>Gran formato en una sola pieza, sin uniones.</span></li>
+			<li><b>04</b><strong>A partir de tus planos</strong><span>Medidas, paleta y diseño desde tu proyecto. Factura por confirmar.</span></li>
+		</ul>
 	</div>
 </section>
 
@@ -254,9 +269,9 @@ if ( function_exists( 'wc_get_products' ) ) {
 			<p class="lede" style="max-width:40ch">Fibras naturales, productos ecológicos y duraderos.</p>
 		</div>
 		<div class="materials">
-			<div><strong>Lana</strong><p>Cálida, suave y muy durable. La fibra principal del taller.</p></div>
-			<div><strong>Yute</strong><p>Textura natural y resistente, ideal para zonas de paso.</p></div>
-			<div><strong>Algodón</strong><p>Ligero y fácil de lavar, para piezas de uso diario.</p></div>
+			<div class="material"><span class="weave weave--lana" aria-hidden="true"></span><strong>Lana</strong><p>Cálida, suave y muy durable. La fibra principal del taller.</p><em>Salas · recámaras · tapices</em></div>
+			<div class="material"><span class="weave weave--yute" aria-hidden="true"></span><strong>Yute</strong><p>Textura natural y resistente, ideal para zonas de paso.</p><em>Pasillos · terrazas · entradas</em></div>
+			<div class="material"><span class="weave weave--algodon" aria-hidden="true"></span><strong>Algodón</strong><p>Ligero y fácil de lavar, para piezas de uso diario.</p><em>Cocinas · baños · cuartos de niños</em></div>
 		</div>
 		<div class="dyes" aria-label="Tintes naturales">
 			<span><i style="background:#8d353d"></i>Cochinilla · rojos y rosas</span>
@@ -264,12 +279,19 @@ if ( function_exists( 'wc_get_products' ) ) {
 			<span><i style="background:#d3a34e"></i>Pericón · amarillos</span>
 			<span><i style="background:#efe6d6;border:1px solid #cbbfa9"></i>Fibra natural · sin teñir</span>
 		</div>
-		<div class="section-head" style="margin-top:clamp(56px,6vw,88px)">
-			<div><p class="eyebrow">Proceso</p><h2 class="h-m">Del hilo al tapete</h2></div>
+		<?php echo nia_ornament( 'ornament--space' ); // phpcs:ignore ?>
+		<div class="section-head">
+			<div><p class="eyebrow">Proceso</p><h2 class="h-l">Del hilo al tapete</h2></div>
+			<p class="lede" style="max-width:38ch">Fibra natural, un telar de pedal y semanas de trabajo en cada pieza.</p>
 		</div>
-		<ol class="steps4">
+		<ol class="steps4 steps-thread">
 			<?php foreach ( $steps as $i => $s ) : ?>
-				<li class="step"><img src="<?php echo esc_url( nia_img( $s[0] ) ); ?>" alt="<?php echo esc_attr( $s[1] ); ?>" loading="lazy" width="460" height="460"><b>0<?php echo (int) $i + 1; ?></b><strong><?php echo esc_html( $s[1] ); ?></strong><p><?php echo esc_html( $s[2] ); ?></p></li>
+				<li class="step">
+					<span class="step-knot" aria-hidden="true"><b>0<?php echo (int) $i + 1; ?></b></span>
+					<div class="step-img"><img src="<?php echo esc_url( nia_img( $s[0] ) ); ?>" alt="<?php echo esc_attr( $s[1] ); ?>" loading="lazy" width="460" height="460"></div>
+					<strong><?php echo esc_html( $s[1] ); ?></strong>
+					<p><?php echo esc_html( $s[2] ); ?></p>
+				</li>
 			<?php endforeach; ?>
 		</ol>
 	</div>
@@ -302,12 +324,28 @@ if ( function_exists( 'wc_get_products' ) ) {
 	</div>
 </section>
 
-<section class="section wrap faq" id="preguntas" aria-labelledby="faq-title">
-	<div class="faq-grid">
-		<div><p class="eyebrow">Preguntas frecuentes</p><h2 class="h-l" id="faq-title">Antes de escribirnos</h2><p class="lede">¿Tienes otra duda? Pregúntanos por WhatsApp.</p></div>
-		<div>
+<section class="faq-band" id="preguntas" aria-labelledby="faq-title">
+	<div class="wrap section faq-grid">
+		<div class="faq-side">
+			<p class="eyebrow">Preguntas frecuentes</p>
+			<h2 class="h-l" id="faq-title">Antes de <em>escribirnos</em></h2>
+			<p class="lede">Lo que más nos preguntan sobre materiales, tiempos y envíos.</p>
+			<div class="faq-card">
+				<strong>¿Tienes otra duda?</strong>
+				<span>Te respondemos directo desde el taller.</span>
+				<a class="btn btn--pericon" <?php echo nia_wa_attrs( nia_wa_link( 'Hola José, tengo una pregunta sobre los tapetes:' ) ); ?>><?php echo nia_icon( 'wa', 'icon' ); ?>Pregúntanos por WhatsApp</a>
+			</div>
+		</div>
+		<div class="faq-list" data-faq>
 			<?php foreach ( $faq as $i => $q ) : ?>
-				<details class="acc"<?php echo 0 === $i ? ' open' : ''; ?>><summary><?php echo esc_html( $q[0] ); ?></summary><div><p><?php echo esc_html( $q[1] ); ?></p></div></details>
+				<div class="faq-item<?php echo 0 === $i ? ' is-open' : ''; ?>">
+					<button type="button" class="faq-q" aria-expanded="<?php echo 0 === $i ? 'true' : 'false'; ?>" aria-controls="faq-a-<?php echo (int) $i; ?>">
+						<span class="faq-n"><?php echo esc_html( str_pad( (string) ( $i + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
+						<span class="faq-t"><?php echo esc_html( $q[0] ); ?></span>
+						<span class="faq-ico" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M7 1h2v2h2v2h2v2h2v2h-2v2h-2v2H9v2H7v-2H5v-2H3V9H1V7h2V5h2V3h2z"/></svg></span>
+					</button>
+					<div class="faq-a" id="faq-a-<?php echo (int) $i; ?>" role="region"><div><p><?php echo esc_html( $q[1] ); ?></p></div></div>
+				</div>
 			<?php endforeach; ?>
 		</div>
 	</div>
