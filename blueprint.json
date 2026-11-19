@@ -28,11 +28,13 @@
     {
       "step": "installTheme",
       "themeData": {
-        "resource": "url",
-        "url": "PEGAR-URL-DEL-TEMA/nia-telar.zip"
+        "resource": "git:directory",
+        "url": "https://github.com/ErickC04/tienda-jose-demo",
+        "ref": "main"
       },
       "options": {
-        "activate": true
+        "activate": true,
+        "targetFolderName": "nia-telar"
       }
     },
     {
