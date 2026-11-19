@@ -44,6 +44,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </style>
 <link rel='stylesheet' id='nia-woo-css' href='/tienda-jose-demo/wp-content/themes/nia-telar/assets/css/woo.css' media='all' />
 <link rel='stylesheet' id='nia-v2-css' href='/tienda-jose-demo/wp-content/themes/nia-telar/assets/css/nia-v2.css' media='all' />
+<link rel='stylesheet' id='nia-v3-css' href='/tienda-jose-demo/wp-content/themes/nia-telar/assets/css/nia-v3.css' media='all' />
 <script id="jquery-core-js" src="/tienda-jose-demo/wp-includes/js/jquery/jquery.min.js"></script>
 <script id="jquery-migrate-js" src="/tienda-jose-demo/wp-includes/js/jquery/jquery-migrate.min.js"></script>
 <script data-wp-strategy="defer" defer id="wc-jquery-blockui-js" src="/tienda-jose-demo/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js"></script>
@@ -58,6 +59,11 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 //# sourceURL=woocommerce-js-extra
 </script>
 <script data-wp-strategy="defer" defer id="woocommerce-js" src="/tienda-jose-demo/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js"></script>
+<script id="wc-cart-fragments-js-extra">
+var wc_cart_fragments_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_ac6ef4538423894314197657c1d2eb74","fragment_name":"wc_fragments_ac6ef4538423894314197657c1d2eb74","request_timeout":"5000"};
+//# sourceURL=wc-cart-fragments-js-extra
+</script>
+
 
 <meta name="generator" content="WordPress 7.1.5" />
 <meta name="generator" content="WooCommerce 11.3.0" />
@@ -81,7 +87,7 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 		<div class="tools">
 			<button class="tool" type="button" data-open="search" aria-label="Buscar"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
 							<a class="tool" href="/tienda-jose-demo/mi-cuenta/" aria-label="Cuenta"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
-						<a class="tool" href="/tienda-jose-demo/carrito/" aria-label="Carrito"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="label">Carrito</span><span class="cart-count" data-count>0</span></a>
+						<a class="tool" href="/tienda-jose-demo/carrito/" aria-label="Carrito" data-open="cart"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="label">Carrito</span><span class="cart-count" data-count>0</span></a>
 		</div>
 	</div>
 </header>
@@ -121,41 +127,82 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 </dialog>
 
 <main id="main">
-<div class="wrap woo-wrap">
-	
-			
-				<h1 class="page-title">Grandes</h1>
+<div class="wrap shop">
+	<nav class="crumbs" aria-label="Ruta"><a href="/tienda-jose-demo">Inicio</a><span aria-hidden="true">/</span>Productos etiquetados &ldquo;Grandes&rdquo;</nav>	<header class="shop-head">
+		<div>
+			<p class="eyebrow">Tienda</p>
+			<h1 class="h-l">Grandes</h1>
+			<p class="lede">Piezas tejidas a mano en Teotitlán del Valle. Cualquier diseño puede hacerse a medida.</p>		</div>
+	</header>
 
-			
-			
-			
-				<div class="woocommerce-notices-wrapper"></div><p class="woocommerce-result-count" role="status" aria-relevant="all" >
-	Mostrando todos los 3 resultados</p>
-<form class="woocommerce-ordering" method="get">
-		<select
-		name="orderby"
-		class="orderby"
-					aria-label="Pedido de la tienda"
-			>
-					<option value="menu_order"  selected='selected'>Orden por defecto</option>
-					<option value="popularity" >Ordenar por popularidad</option>
-					<option value="rating" >Ordenar por calificación media</option>
-					<option value="date" >Ordenar por las últimas</option>
-					<option value="price" >Ordenar por precio: bajo a alto</option>
-					<option value="price-desc" >Ordenar por precio: alto a bajo</option>
-			</select>
-	<input type="hidden" name="paged" value="1" />
-	</form>
+	<div class="shop-layout" data-shop>
+		<aside class="shop-filters" id="shop-filters" aria-label="Filtros">
+			<div class="shop-filters-head"><strong>Filtros</strong><button class="x" type="button" data-filters-close aria-label="Cerrar filtros"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+							<fieldset class="facet" data-facet="cat">
+					<legend>Tipo</legend>
+											<label><input type="checkbox" value="tapetes"><span class="facet-label">Tapetes</span><span class="facet-count" data-count-for="cat:tapetes"></span></label>
+											<label><input type="checkbox" value="tapices"><span class="facet-label">Tapices</span><span class="facet-count" data-count-for="cat:tapices"></span></label>
+											<label><input type="checkbox" value="cojines"><span class="facet-label">Cojines</span><span class="facet-count" data-count-for="cat:cojines"></span></label>
+									</fieldset>
+							<fieldset class="facet" data-facet="size">
+					<legend>Medida</legend>
+											<label><input type="checkbox" value="pequenos"><span class="facet-label">Pequeños · 60 × 100</span><span class="facet-count" data-count-for="size:pequenos"></span></label>
+											<label><input type="checkbox" value="medianos"><span class="facet-label">80 × 150 cm</span><span class="facet-count" data-count-for="size:medianos"></span></label>
+											<label><input type="checkbox" value="grandes"><span class="facet-label">2 × 3 m</span><span class="facet-count" data-count-for="size:grandes"></span></label>
+											<label><input type="checkbox" value="gran-formato"><span class="facet-label">Gran formato</span><span class="facet-count" data-count-for="size:gran-formato"></span></label>
+											<label><input type="checkbox" value="pasilleros"><span class="facet-label">Pasilleros</span><span class="facet-count" data-count-for="size:pasilleros"></span></label>
+											<label><input type="checkbox" value="circulares"><span class="facet-label">Circulares</span><span class="facet-count" data-count-for="size:circulares"></span></label>
+									</fieldset>
+							<fieldset class="facet" data-facet="style">
+					<legend>Estilo</legend>
+											<label><input type="checkbox" value="organico-abstracto"><span class="facet-label">Contemporáneo y orgánico</span><span class="facet-count" data-count-for="style:organico-abstracto"></span></label>
+											<label><input type="checkbox" value="geometrico-contemporaneo"><span class="facet-label">Geométrico</span><span class="facet-count" data-count-for="style:geometrico-contemporaneo"></span></label>
+											<label><input type="checkbox" value="minimalista-natural"><span class="facet-label">Minimalista</span><span class="facet-count" data-count-for="style:minimalista-natural"></span></label>
+											<label><input type="checkbox" value="tradicional-zapoteca"><span class="facet-label">Grecas zapotecas</span><span class="facet-count" data-count-for="style:tradicional-zapoteca"></span></label>
+									</fieldset>
+							<fieldset class="facet" data-facet="stock">
+					<legend>Disponibilidad</legend>
+											<label><input type="checkbox" value="stock"><span class="facet-label">En stock</span><span class="facet-count" data-count-for="stock:stock"></span></label>
+											<label><input type="checkbox" value="pedido"><span class="facet-label">Por encargo</span><span class="facet-count" data-count-for="stock:pedido"></span></label>
+									</fieldset>
+							<fieldset class="facet" data-facet="price">
+					<legend>Precio</legend>
+											<label><input type="checkbox" value="0-5000"><span class="facet-label">Menos de $5,000</span><span class="facet-count" data-count-for="price:0-5000"></span></label>
+											<label><input type="checkbox" value="5000-15000"><span class="facet-label">$5,000 a $15,000</span><span class="facet-count" data-count-for="price:5000-15000"></span></label>
+											<label><input type="checkbox" value="15000-999999"><span class="facet-label">Más de $15,000</span><span class="facet-count" data-count-for="price:15000-999999"></span></label>
+									</fieldset>
+						<button class="btn btn--block shop-apply" type="button" data-filters-close>Ver piezas</button>
+		</aside>
 
+		<div class="shop-main">
+			<div class="shop-toolbar">
+				<button class="btn btn--ghost shop-filters-btn" type="button" data-filters-open><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>Filtros</button>
+				<span class="shop-count" data-shop-count role="status"></span>
+				<label class="shop-sort">Ordenar
+					<select data-shop-sort>
+						<option value="">Destacados</option>
+						<option value="price-asc">Precio: menor a mayor</option>
+						<option value="price-desc">Precio: mayor a menor</option>
+						<option value="area-asc">Medida: menor a mayor</option>
+						<option value="area-desc">Medida: mayor a menor</option>
+					</select>
+				</label>
+			</div>
+			<div class="shop-chips" data-shop-chips></div>
+			
+			
+			
+			
+				<div class="woocommerce-notices-wrapper"></div>
 				<ul class="products columns-3">
 
 																					<li class="nia-loop-item product type-product post-24 status-publish first instock product_cat-tapetes product_tag-color-anil product_tag-color-cochinilla product_tag-color-pericon product_tag-color-verde product_tag-listo-para-enviar product_tag-grandes product_tag-organico-abstracto has-post-thumbnail sold-individually shipping-taxable purchasable product-type-simple">
-	<article class="card">
+	<article class="card" data-cat="tapetes" data-tags="color-anil color-cochinilla color-pericon color-verde listo-para-enviar grandes organico-abstracto" data-stock="stock" data-price="12800" data-area="40800">
 	<div class="card-media">
-		<a href="/tienda-jose-demo/producto/formas-organicas/" tabindex="-1" aria-hidden="true">
+		<a href="/tienda-jose-demo/producto/formas-organicas/" tabindex="-1" aria-hidden="true" class="card-img">
 			<img width="461" height="577" src="/tienda-jose-demo/wp-content/uploads/2026/11/formas-organicas.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" decoding="async" srcset="/tienda-jose-demo/wp-content/uploads/2026/11/formas-organicas.jpg 461w, /tienda-jose-demo/wp-content/uploads/2026/11/formas-organicas-240x300.jpg 240w" sizes="auto, (max-width: 461px) 100vw, 461px" />		</a>
 					<span class="badge badge--stock">En stock</span>
-											<a class="card-quick button add_to_cart_button ajax_add_to_cart" href="/etiqueta/grandes/?add-to-cart=24" data-quantity="1" data-product_id="24" data-product_sku="NIA-005" rel="nofollow">Agregar al carrito</a>
+											<a class="card-quick add_to_cart_button ajax_add_to_cart" href="/etiqueta/grandes/?add-to-cart=24" data-quantity="1" data-product_id="24" data-product_sku="NIA-005" data-nia-name="Formas orgánicas" data-nia-price="12800" data-nia-size="170 × 240 cm" data-nia-img="/tienda-jose-demo/wp-content/uploads/2026/11/formas-organicas.jpg" rel="nofollow"><span>Agregar al carrito</span></a>
 						</div>
 	<div class="card-body">
 		<h3 class="card-title"><a href="/tienda-jose-demo/producto/formas-organicas/">Formas orgánicas</a></h3>
@@ -166,12 +213,12 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 </article>
 </li>
 																	<li class="nia-loop-item product type-product post-26 status-publish instock product_cat-tapetes product_tag-color-crudo product_tag-color-terracota product_tag-listo-para-enviar product_tag-grandes product_tag-organico-abstracto has-post-thumbnail sold-individually shipping-taxable purchasable product-type-simple">
-	<article class="card">
+	<article class="card" data-cat="tapetes" data-tags="color-crudo color-terracota listo-para-enviar grandes organico-abstracto" data-stock="stock" data-price="16500" data-area="60000">
 	<div class="card-media">
-		<a href="/tienda-jose-demo/producto/terra/" tabindex="-1" aria-hidden="true">
+		<a href="/tienda-jose-demo/producto/terra/" tabindex="-1" aria-hidden="true" class="card-img">
 			<img width="461" height="577" src="/tienda-jose-demo/wp-content/uploads/2026/11/terra.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" decoding="async" srcset="/tienda-jose-demo/wp-content/uploads/2026/11/terra.jpg 461w, /tienda-jose-demo/wp-content/uploads/2026/11/terra-240x300.jpg 240w" sizes="auto, (max-width: 461px) 100vw, 461px" />		</a>
 					<span class="badge badge--stock">En stock</span>
-											<a class="card-quick button add_to_cart_button ajax_add_to_cart" href="/etiqueta/grandes/?add-to-cart=26" data-quantity="1" data-product_id="26" data-product_sku="NIA-006" rel="nofollow">Agregar al carrito</a>
+											<a class="card-quick add_to_cart_button ajax_add_to_cart" href="/etiqueta/grandes/?add-to-cart=26" data-quantity="1" data-product_id="26" data-product_sku="NIA-006" data-nia-name="Terra" data-nia-price="16500" data-nia-size="200 × 300 cm" data-nia-img="/tienda-jose-demo/wp-content/uploads/2026/11/terra.jpg" rel="nofollow"><span>Agregar al carrito</span></a>
 						</div>
 	<div class="card-body">
 		<h3 class="card-title"><a href="/tienda-jose-demo/producto/terra/">Terra</a></h3>
@@ -182,12 +229,12 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 </article>
 </li>
 																	<li class="nia-loop-item product type-product post-30 status-publish last instock product_cat-tapetes product_tag-color-carbon product_tag-color-crudo product_tag-listo-para-enviar product_tag-grandes product_tag-minimalista-natural has-post-thumbnail sold-individually shipping-taxable purchasable product-type-simple">
-	<article class="card">
+	<article class="card" data-cat="tapetes" data-tags="color-carbon color-crudo listo-para-enviar grandes minimalista-natural" data-stock="stock" data-price="10900" data-area="36800">
 	<div class="card-media">
-		<a href="/tienda-jose-demo/producto/cuadros-carbon/" tabindex="-1" aria-hidden="true">
+		<a href="/tienda-jose-demo/producto/cuadros-carbon/" tabindex="-1" aria-hidden="true" class="card-img">
 			<img width="461" height="577" src="/tienda-jose-demo/wp-content/uploads/2026/11/cuadros-carbon.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" decoding="async" srcset="/tienda-jose-demo/wp-content/uploads/2026/11/cuadros-carbon.jpg 461w, /tienda-jose-demo/wp-content/uploads/2026/11/cuadros-carbon-240x300.jpg 240w" sizes="auto, (max-width: 461px) 100vw, 461px" />		</a>
 					<span class="badge badge--stock">En stock</span>
-											<a class="card-quick button add_to_cart_button ajax_add_to_cart" href="/etiqueta/grandes/?add-to-cart=30" data-quantity="1" data-product_id="30" data-product_sku="NIA-008" rel="nofollow">Agregar al carrito</a>
+											<a class="card-quick add_to_cart_button ajax_add_to_cart" href="/etiqueta/grandes/?add-to-cart=30" data-quantity="1" data-product_id="30" data-product_sku="NIA-008" data-nia-name="Cuadros carbón" data-nia-price="10900" data-nia-size="160 × 230 cm" data-nia-img="/tienda-jose-demo/wp-content/uploads/2026/11/cuadros-carbon.jpg" rel="nofollow"><span>Agregar al carrito</span></a>
 						</div>
 	<div class="card-body">
 		<h3 class="card-title"><a href="/tienda-jose-demo/producto/cuadros-carbon/">Cuadros carbón</a></h3>
@@ -201,7 +248,14 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 				</ul>
 
 				
-				</div>
+							<div class="shop-empty" data-shop-empty hidden>
+				<p class="lede">No hay piezas con esos filtros ahora mismo.</p>
+				<p>Cualquier diseño puede tejerse a medida.</p>
+				<a class="btn btn--pericon" href="/tienda-jose-demo/#a-medida">Pedir una pieza a medida</a>
+			</div>
+		</div>
+	</div>
+</div>
 </main>
 
 <footer class="footer on-dark">
@@ -244,12 +298,26 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 	</div>
 </footer>
 
+<dialog class="drawer cart-drawer" id="cart" aria-labelledby="cart-title">
+	<div class="drawer-head"><h2 id="cart-title">Tu carrito</h2><button class="x" type="button" data-close aria-label="Cerrar carrito"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+	<div class="drawer-body"><div class="widget_shopping_cart_content">
+
+	<p class="woocommerce-mini-cart__empty-message">No hay productos en el carrito.</p>
+
+
+</div></div>
+	<div class="drawer-trust">
+		<span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.2 6h12v10.5h-12zM14.2 9.8h4.5l3 3.7v3h-7.5"/><circle cx="6.8" cy="18" r="1.9"/><circle cx="18" cy="18" r="1.9"/></svg>Envío asegurado a todo México y al extranjero</span>
+		<span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4.5h18M3 19.5h18M5.2 4.5v15M18.8 4.5v15M8.2 7.5v9M11.2 7.5v9M14.2 7.5v9M5.2 12h13.6"/></svg>Tejido a mano en Teotitlán del Valle</span>
+	</div>
+</dialog>
+
 <a class="wa-float" href="#" data-demo="Aquí se conecta el WhatsApp del taller: al tocarlo se abre el chat con José y el mensaje ya escrito." aria-label="Escríbenos por WhatsApp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19.1L4 20Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2L9 9.5Z"/></svg><span>WhatsApp</span></a>
 <div class="toast" id="toast" role="status" hidden></div>
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/nia-telar/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script id="wc-no-js">
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"name":"Inicio","@id":"/tienda-jose-demo"}},{"@type":"ListItem","position":2,"item":{"name":"Productos etiquetados &amp;ldquo;Grandes&amp;rdquo;","@id":"/tienda-jose-demo/etiqueta/grandes/"}}]}</script><script id="wc-no-js">
 		(function () {
 			var c = document.body.className;
 			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
@@ -264,23 +332,6 @@ var wc_order_attribution = {"params":{"lifetime":1.0e-5,"session":30,"base64":fa
 //# sourceURL=wc-order-attribution-js-extra
 </script>
 
-
-<script>
-(function(){
-  function toast(m){var t=document.getElementById('toast');if(!t){alert(m);return;}t.textContent=m;t.hidden=false;clearTimeout(window.__niaT);window.__niaT=setTimeout(function(){t.hidden=true},3200);}
-  var MSG='Vista de demostración: el carrito y el pago se activan en la tienda real.';
-  document.addEventListener('click',function(e){
-    var a=e.target.closest('.add_to_cart_button,.single_add_to_cart_button,a[aria-label="Carrito"],a[aria-label="Cuenta"],.card-quick');
-    if(!a)return;
-    if(a.matches('a.card-quick:not(.add_to_cart_button)'))return;
-    e.preventDefault();e.stopImmediatePropagation();toast(MSG);
-  },true);
-  document.addEventListener('submit',function(e){
-    var f=e.target;
-    if(f.matches('form.cart')){e.preventDefault();e.stopImmediatePropagation();toast(MSG);return;}
-    if(f.getAttribute('role')==='search'){e.preventDefault();var q=(f.querySelector('input[type=search]')||{}).value||'';location.href='/tienda-jose-demo/tienda/'+(q?'#buscar='+encodeURIComponent(q):'');}
-  },true);
-})();
-</script>
+<script src="/tienda-jose-demo/nia-demo-cart.js"></script>
 </body>
 </html>

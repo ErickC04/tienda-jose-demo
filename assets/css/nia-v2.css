@@ -110,3 +110,11 @@
   .tools{gap:0}
   .header .brand{gap:8px}
 }
+
+/* Fotos sin marco (hero y taller): imagen limpia y pie de foto como texto */
+.polaroid{background:none;padding:0;box-shadow:none;color:var(--on-dark)}
+.polaroid img{display:block;box-shadow:0 18px 40px -22px #000c}
+.polaroid figcaption{padding:10px 0 0;color:#e9e1d3;font-size:14px}
+.collage-set{gap:22px;padding-bottom:22px}
+.collage{gap:18px}
+@media (max-width:640px){.collage-set{gap:10px;padding-bottom:10px}.collage{gap:10px}}

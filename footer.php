@@ -61,6 +61,17 @@ $fb = get_theme_mod( 'nia_facebook', '' );
 	</div>
 </footer>
 
+<?php if ( function_exists( 'woocommerce_mini_cart' ) ) : ?>
+<dialog class="drawer cart-drawer" id="cart" aria-labelledby="cart-title">
+	<div class="drawer-head"><h2 id="cart-title">Tu carrito</h2><button class="x" type="button" data-close aria-label="Cerrar carrito"><?php echo nia_icon( 'x' ); ?></button></div>
+	<div class="drawer-body"><div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div></div>
+	<div class="drawer-trust">
+		<span><?php echo nia_icon( 'truck', 'icon' ); ?>Envío asegurado a todo México y al extranjero</span>
+		<span><?php echo nia_icon( 'loom', 'icon' ); ?>Tejido a mano en Teotitlán del Valle</span>
+	</div>
+</dialog>
+<?php endif; ?>
+
 <a class="wa-float" <?php echo nia_wa_attrs( nia_wa_link( 'Hola José, vi la página de Nia Design y me interesa un tapete.' ) ); ?> aria-label="Escríbenos por WhatsApp"><?php echo nia_icon( 'wa', 'icon' ); ?><span>WhatsApp</span></a>
 <div class="toast" id="toast" role="status" hidden></div>
 <?php wp_footer(); ?>

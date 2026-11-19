@@ -26,12 +26,17 @@ add_filter( 'woocommerce_add_to_cart_fragments', function ( $fragments ) {
 	return $fragments;
 } );
 
-/* Título del catálogo con antetítulo */
-add_action( 'woocommerce_archive_description', function () {
-	if ( is_shop() ) {
-		echo '<p class="lede" style="margin:10px 0 0">Tapetes y tapices de lana, yute y algodón, tejidos a mano en Teotitlán del Valle.</p>';
-	}
-}, 5 );
+/* En tienda y categorías el encabezado, el conteo y el orden los pinta woocommerce.php */
+add_filter( 'woocommerce_show_page_title', '__return_false' );
+remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
+remove_action( 'woocommerce_archive_description', 'woocommerce_product_archive_description', 10 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+/* Carrito lateral: el mini carrito de WooCommerce se actualiza solo con los fragmentos */
+add_action( 'wp_enqueue_scripts', function () {
+	wp_enqueue_script( 'wc-cart-fragments' );
+}, 20 );
 
 /* Ficha de producto ------------------------------------------------------ */
 

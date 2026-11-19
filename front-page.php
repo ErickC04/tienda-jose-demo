@@ -153,17 +153,42 @@ if ( function_exists( 'wc_get_products' ) ) {
 
 <section class="custom section" id="a-medida" aria-labelledby="custom-title">
 	<div class="wrap">
-		<figure class="custom-media" style="margin:0"><img src="<?php echo esc_url( nia_img( 'tapete-470x200-verde-olivo-rayas.jpg' ) ); ?>" alt="Tapete verde olivo de gran formato extendido en el taller" loading="lazy" width="460" height="575"><figcaption>Rayas verde olivo, 2 × 4.7 m, tejido sobre pedido.</figcaption></figure>
+		<div class="loom" data-loom aria-label="Animación: cómo nace un tapete a medida, de la idea al envío">
+			<div class="loom-frame">
+				<span class="loom-beam loom-beam--top" aria-hidden="true"></span>
+				<canvas class="loom-canvas" width="480" height="600" aria-hidden="true"></canvas>
+				<span class="loom-beam loom-beam--bottom" aria-hidden="true"></span>
+				<!-- Capas de cada etapa -->
+				<div class="loom-layer loom-layer--idea" data-layer="0" aria-hidden="true">
+					<span class="dim dim--w">2.0 m</span><span class="dim dim--h">3.0 m</span>
+					<span class="loom-note">Sala · 4 × 5 m · luz de tarde</span>
+				</div>
+				<div class="loom-layer loom-layer--color" data-layer="1" aria-hidden="true">
+					<span class="chip" style="--c:#ffcc29">Pericón</span>
+					<span class="chip" style="--c:#1d1b19">Carbón</span>
+					<span class="chip" style="--c:#f4efe6">Lana cruda</span>
+				</div>
+				<div class="loom-layer loom-layer--quote" data-layer="2" aria-hidden="true">
+					<div class="quote-card"><b>Cotización</b><span>Tapete de lana · 200 × 300 cm</span><span>Entrega estimada: 6 semanas</span><span class="quote-ok">Anticipo recibido ✓</span></div>
+				</div>
+				<div class="loom-layer loom-layer--weave" data-layer="3" aria-hidden="true">
+					<span class="loom-note loom-note--live"><i></i>Foto de avance · <b data-loom-pct>0</b>%</span>
+				</div>
+				<div class="loom-layer loom-layer--ship" data-layer="4" aria-hidden="true">
+					<span class="loom-note">Listo · Teotitlán del Valle → tu ciudad</span>
+				</div>
+			</div>
+		</div>
 		<div>
 			<p class="eyebrow">A medida</p>
 			<h2 class="h-l" id="custom-title">Diseñamos el tapete de tu espacio</h2>
-			<p class="lede">Mándanos medidas, fotos del lugar y referencias. José propone diseño y paleta, y te enviamos muestra de color y avances desde el telar.</p>
-			<ol class="custom-steps">
-				<li><b>01</b><div><strong>Cuéntanos tu idea</strong><span>Medidas, fotos del espacio y referencias.</span></div></li>
-				<li><b>02</b><div><strong>Diseño y muestra de color</strong><span>Definimos fibra, tintes y composición.</span></div></li>
-				<li><b>03</b><div><strong>Cotización y anticipo</strong><span>Precio y fecha de entrega por escrito.</span></div></li>
-				<li><b>04</b><div><strong>Tejido con fotos de avance</strong><span>De 4 a 8 semanas según la medida.</span></div></li>
-				<li><b>05</b><div><strong>Envío</strong><span>A todo México y al extranjero.</span></div></li>
+			<p class="lede">Mándanos medidas, fotos del lugar y referencias. José propone diseño y paleta, te enviamos muestra de color y avances desde el telar.</p>
+			<ol class="custom-steps loom-steps">
+				<li data-step="0"><button type="button"><b>01</b><div><strong>Cuéntanos tu idea</strong><span>Medidas, fotos del espacio y referencias.</span></div></button><i class="step-bar"></i></li>
+				<li data-step="1"><button type="button"><b>02</b><div><strong>Diseño y muestra de color</strong><span>Definimos fibra, tintes y composición.</span></div></button><i class="step-bar"></i></li>
+				<li data-step="2"><button type="button"><b>03</b><div><strong>Cotización y anticipo</strong><span>Precio y fecha de entrega por escrito.</span></div></button><i class="step-bar"></i></li>
+				<li data-step="3"><button type="button"><b>04</b><div><strong>Tejido con fotos de avance</strong><span>De 4 a 8 semanas según la medida.</span></div></button><i class="step-bar"></i></li>
+				<li data-step="4"><button type="button"><b>05</b><div><strong>Envío</strong><span>A todo México y al extranjero.</span></div></button><i class="step-bar"></i></li>
 			</ol>
 			<a class="btn btn--pericon" <?php echo nia_wa_attrs( $wa_q ); ?>><?php echo nia_icon( 'wa', 'icon' ); ?>Cotizar mi diseño por WhatsApp</a>
 		</div>

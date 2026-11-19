@@ -36,6 +36,7 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'nia', NIA_URI . '/assets/css/nia.css', array(), NIA_VERSION );
 	wp_enqueue_style( 'nia-woo', NIA_URI . '/assets/css/woo.css', array( 'nia' ), NIA_VERSION );
 	wp_enqueue_style( 'nia-v2', NIA_URI . '/assets/css/nia-v2.css', array( 'nia-woo' ), NIA_VERSION );
+	wp_enqueue_style( 'nia-v3', NIA_URI . '/assets/css/nia-v3.css', array( 'nia-v2' ), NIA_VERSION );
 	$fonts = '@font-face{font-family:"Fraunces";src:url(' . NIA_URI . '/assets/fonts/fraunces.woff2) format("woff2");font-weight:300 700;font-display:swap}'
 		. '@font-face{font-family:"Fraunces";src:url(' . NIA_URI . '/assets/fonts/fraunces-italic.woff2) format("woff2");font-weight:300 700;font-style:italic;font-display:swap}'
 		. '@font-face{font-family:"Instrument Sans";src:url(' . NIA_URI . '/assets/fonts/instrument-sans.woff2) format("woff2");font-weight:400 700;font-display:swap}';

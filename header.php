@@ -36,7 +36,7 @@ $count    = ( function_exists( 'WC' ) && WC()->cart ) ? WC()->cart->get_cart_con
 			<?php if ( function_exists( 'wc_get_page_permalink' ) ) : ?>
 				<a class="tool" href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" aria-label="Cuenta"><?php echo nia_icon( 'user' ); ?></a>
 			<?php endif; ?>
-			<a class="tool" href="<?php echo esc_url( $cart_url ); ?>" aria-label="Carrito"><?php echo nia_icon( 'bag' ); ?><span class="label">Carrito</span><span class="cart-count" data-count><?php echo (int) $count; ?></span></a>
+			<a class="tool" href="<?php echo esc_url( $cart_url ); ?>" aria-label="Carrito" data-open="cart"><?php echo nia_icon( 'bag' ); ?><span class="label">Carrito</span><span class="cart-count" data-count><?php echo (int) $count; ?></span></a>
 		</div>
 	</div>
 </header>
