@@ -2,7 +2,7 @@
 /**
  * Encabezado
  */
-$announce = array_filter( array_map( 'trim', explode( '|', (string) get_theme_mod( 'nia_announce', 'Tejido a mano en Teotitlán del Valle, Oaxaca|Envíos a todo México|Encargos a medida para casas y proyectos de interiorismo' ) ) ) );
+$announce = array_filter( array_map( 'trim', explode( '|', (string) get_theme_mod( 'nia_announce', 'Tejido a mano en Teotitlán del Valle|Envíos a todo México y al extranjero|Diseños a medida por WhatsApp' ) ) ) );
 $cart_url = function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/' );
 $count    = ( function_exists( 'WC' ) && WC()->cart ) ? WC()->cart->get_cart_contents_count() : 0;
 ?><!doctype html>
@@ -29,7 +29,7 @@ $count    = ( function_exists( 'WC' ) && WC()->cart ) ? WC()->cart->get_cart_con
 		<button class="tool menu-btn" type="button" data-open="mobile-nav" aria-label="Abrir menú"><?php echo nia_icon( 'menu' ); ?></button>
 		<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>, inicio">
 			<img src="<?php echo esc_url( nia_img( 'nia-logo.png' ) ); ?>" alt="" width="44" height="44">
-			<span><b>NIA</b><small>Textiles José Mendoza</small></span>
+			<span><b>Nia Design</b><small>Textiles José Mendoza</small></span>
 		</a>
 		<div class="tools">
 			<button class="tool" type="button" data-open="search" aria-label="Buscar"><?php echo nia_icon( 'search' ); ?></button>
@@ -44,17 +44,25 @@ $count    = ( function_exists( 'WC' ) && WC()->cart ) ? WC()->cart->get_cart_con
 
 <dialog class="drawer drawer--left" id="mobile-nav" aria-label="Menú">
 	<div class="drawer-head">
-		<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( nia_img( 'nia-logo.png' ) ); ?>" alt="" width="38" height="38"><span><b>NIA</b></span></a>
+		<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( nia_img( 'nia-logo.png' ) ); ?>" alt="" width="38" height="38"><span><b>Nia Design</b></span></a>
 		<button class="x" type="button" data-close aria-label="Cerrar menú"><?php echo nia_icon( 'x' ); ?></button>
 	</div>
 	<div class="drawer-body mnav">
 		<?php nia_nav_links( 'principal' ); ?>
 		<h3>Por tipo</h3>
 		<div class="sub">
-			<a href="<?php echo esc_url( nia_term_url( 'tapetes' ) ); ?>">Tapetes</a>
+			<a href="<?php echo esc_url( nia_term_url( 'listo-para-enviar' ) ); ?>">En stock</a>
+			<a href="<?php echo esc_url( nia_term_url( 'pasilleros' ) ); ?>">Pasilleros y corredores</a>
+			<a href="<?php echo esc_url( nia_term_url( 'circulares' ) ); ?>">Circulares</a>
+			<a href="<?php echo esc_url( nia_term_url( 'gran-formato' ) ); ?>">Gran formato</a>
 			<a href="<?php echo esc_url( nia_term_url( 'tapices' ) ); ?>">Tapices</a>
-			<a href="<?php echo esc_url( nia_term_url( 'cojines' ) ); ?>">Cojines</a>
-			<a href="<?php echo esc_url( nia_term_url( 'listo-para-enviar' ) ); ?>">Listos para enviar</a>
+			<a href="<?php echo esc_url( nia_term_url( 'ofertas' ) ); ?>">Ofertas</a>
+		</div>
+		<h3>Taller</h3>
+		<div class="sub">
+			<a href="<?php echo esc_url( home_url( '/#a-medida' ) ); ?>">A medida</a>
+			<a href="<?php echo esc_url( home_url( '/#proyectos' ) ); ?>">Proyectos</a>
+			<a href="<?php echo esc_url( home_url( '/#preguntas' ) ); ?>">Preguntas frecuentes</a>
 		</div>
 	</div>
 </dialog>

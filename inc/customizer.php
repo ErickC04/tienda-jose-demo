@@ -16,10 +16,10 @@ add_action( 'customize_register', function ( $wp_customize ) {
 		'nia_email'     => array( 'Correo de contacto', '', '' ),
 		'nia_instagram' => array( 'Instagram', 'https://www.instagram.com/josemendozatextiles/', '' ),
 		'nia_facebook'  => array( 'Facebook', '', '' ),
-		'nia_address'   => array( 'Dirección del taller', 'Teotitlán del Valle, Oaxaca, México', '' ),
+		'nia_address'   => array( 'Dirección del taller', 'Prolongación de Buenavista 54, Teotitlán del Valle, Oaxaca, 70420', '' ),
 		'nia_hours'     => array( 'Horario de visitas', 'Con cita previa', '' ),
 		'nia_maps'      => array( 'Enlace a Google Maps', '', '' ),
-		'nia_announce'  => array( 'Avisos superiores (separados por |)', 'Tejido a mano en Teotitlán del Valle, Oaxaca|Envíos a todo México|Encargos a medida para casas y proyectos de interiorismo', '' ),
+		'nia_announce'  => array( 'Avisos superiores (separados por |)', 'Tejido a mano en Teotitlán del Valle|Envíos a todo México y al extranjero|Diseños a medida por WhatsApp', '' ),
 	);
 	foreach ( $fields as $id => $f ) {
 		$wp_customize->add_setting( $id, array(

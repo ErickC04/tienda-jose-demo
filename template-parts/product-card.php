@@ -28,11 +28,11 @@ $pedido = nia_is_made_to_order( $id );
 		<?php if ( ! $product->is_in_stock() ) : ?>
 			<span class="badge">Vendido</span>
 		<?php elseif ( $pedido ) : ?>
-			<span class="badge badge--pedido">Sobre pedido</span>
+			<span class="badge badge--pedido">Por encargo</span>
 		<?php elseif ( $product->is_on_sale() ) : ?>
-			<span class="badge" style="background:var(--cochinilla);color:#fff">Oferta</span>
+			<span class="badge badge--oferta">Oferta</span>
 		<?php else : ?>
-			<span class="badge">Pieza única</span>
+			<span class="badge badge--stock">En stock</span>
 		<?php endif; ?>
 		<?php if ( $product->is_purchasable() && $product->is_in_stock() ) : ?>
 			<?php if ( $product->is_type( 'simple' ) ) : ?>

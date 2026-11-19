@@ -10,10 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 function nia_demo_tag_names() {
 	return array(
 		'pequenos' => 'Pequeños', 'medianos' => 'Medianos', 'grandes' => 'Grandes', 'gran-formato' => 'Gran formato',
-		'corredores' => 'Corredores', 'redondos' => 'Redondos y ovalados',
+		'pasilleros' => 'Pasilleros y corredores', 'circulares' => 'Circulares', 'ofertas' => 'Ofertas',
 		'tradicional-zapoteca' => 'Tradicional zapoteca', 'geometrico-contemporaneo' => 'Geométrico contemporáneo',
 		'organico-abstracto' => 'Orgánico y abstracto', 'minimalista-natural' => 'Minimalista natural',
-		'listo-para-enviar' => 'Listos para enviar', 'sobre-pedido' => 'Sobre pedido',
+		'listo-para-enviar' => 'En stock', 'sobre-pedido' => 'Por encargo',
 	);
 }
 
@@ -36,7 +36,7 @@ function nia_demo_install() {
 	update_option( 'woocommerce_default_country', 'MX:OA' );
 	update_option( 'woocommerce_coming_soon', 'no' );
 	update_option( 'woocommerce_store_pages_only', 'no' );
-	update_option( 'blogname', 'NIA · Textiles José Mendoza' );
+	update_option( 'blogname', 'Nia Design · Textiles José Mendoza' );
 	update_option( 'blogdescription', 'Tapetes zapotecos tejidos a mano en Teotitlán del Valle' );
 	if ( ! get_option( 'permalink_structure' ) ) {
 		update_option( 'permalink_structure', '/%postname%/' );
@@ -120,6 +120,10 @@ function nia_demo_install() {
 			$product->set_attributes( array( $attr ) );
 		} else {
 			$product->set_regular_price( (string) $p['sizes'][0][1] );
+			if ( ! empty( $p['sale'] ) ) {
+				$product->set_sale_price( (string) $p['sale'] );
+				$p['tags'][] = 'ofertas';
+			}
 			$product->update_meta_data( '_nia_medida', $p['sizes'][0][0] );
 			if ( $pedido ) {
 				$product->set_manage_stock( false );
@@ -180,14 +184,14 @@ function nia_demo_install() {
 	/* Menú principal */
 	if ( ! wp_get_nav_menu_object( 'Principal NIA' ) ) {
 		$menu_id = wp_create_nav_menu( 'Principal NIA' );
-		$items   = array(
-			array( 'Tienda', wc_get_page_permalink( 'shop' ) ),
-			array( 'Tapetes', nia_term_url( 'tapetes' ) ),
-			array( 'A medida', home_url( '/#a-medida' ) ),
-			array( 'El taller', home_url( '/#taller' ) ),
-		);
-		foreach ( $items as $it ) {
-			wp_update_nav_menu_item( $menu_id, 0, array( 'menu-item-title' => $it[0], 'menu-item-url' => $it[1], 'menu-item-status' => 'publish', 'menu-item-type' => 'custom' ) );
+		/* Tienda y Tapetes como enlaces a objetos: su URL se calcula siempre con la estructura actual */
+		wp_update_nav_menu_item( $menu_id, 0, array( 'menu-item-title' => 'Tienda', 'menu-item-object' => 'page', 'menu-item-object-id' => wc_get_page_id( 'shop' ), 'menu-item-type' => 'post_type', 'menu-item-status' => 'publish' ) );
+		$tapetes = get_term_by( 'slug', 'tapetes', 'product_cat' );
+		if ( $tapetes ) {
+			wp_update_nav_menu_item( $menu_id, 0, array( 'menu-item-title' => 'Tapetes', 'menu-item-object' => 'product_cat', 'menu-item-object-id' => $tapetes->term_id, 'menu-item-type' => 'taxonomy', 'menu-item-status' => 'publish' ) );
+		}
+		foreach ( array( array( 'A medida', '/#a-medida' ), array( 'El taller', '/#taller' ) ) as $it ) {
+			wp_update_nav_menu_item( $menu_id, 0, array( 'menu-item-title' => $it[0], 'menu-item-url' => home_url( $it[1] ), 'menu-item-status' => 'publish', 'menu-item-type' => 'custom' ) );
 		}
 		$loc              = get_theme_mod( 'nav_menu_locations', array() );
 		$loc['principal'] = $menu_id;

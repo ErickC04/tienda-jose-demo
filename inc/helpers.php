@@ -99,6 +99,19 @@ function nia_whatsapp_url( $text = '' ) {
 	return 'https://wa.me/' . $n . ( $text ? '?text=' . rawurlencode( $text ) : '' );
 }
 
+/** Enlace de WhatsApp con mensaje (o '' si aún no hay número) */
+function nia_wa_link( $text = '' ) {
+	return nia_whatsapp_url( $text );
+}
+
+/** Atributos para un enlace de WhatsApp: real si hay número; si no, aviso de demostración */
+function nia_wa_attrs( $url ) {
+	if ( $url ) {
+		return 'href="' . esc_url( $url ) . '" target="_blank" rel="noopener"';
+	}
+	return 'href="#" data-demo="Aquí se conecta el WhatsApp del taller: al tocarlo se abre el chat con José y el mensaje ya escrito."';
+}
+
 /** Muestras de color a partir de etiquetas color-xxx */
 function nia_color_map() {
 	return array(

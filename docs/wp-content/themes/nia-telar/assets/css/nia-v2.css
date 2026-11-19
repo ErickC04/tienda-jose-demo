@@ -1,0 +1,112 @@
+/* ===== Nia Design · ajustes de identidad y secciones nuevas (apuntes 18-nov) ===== */
+:root{
+  --pericon:#ffcc29;      /* amarillo del logo: acento principal */
+  --pericon-2:#ffd95c;
+  --amarillo:#ffcc29;
+}
+/* Etiquetas en carbón; el amarillo queda como marca (greca y botones) */
+.eyebrow{color:var(--carbon-3)}
+.on-dark .eyebrow,.hero .eyebrow,.visit .eyebrow{color:var(--amarillo)}
+.hero h1 em{color:var(--amarillo)}
+.btn--pericon{background:var(--amarillo);border-color:var(--amarillo);color:var(--carbon)}
+.btn--pericon:hover{background:var(--pericon-2);border-color:var(--pericon-2);color:var(--carbon)}
+.btn .icon{width:20px;height:20px}
+.link{text-decoration-color:var(--amarillo)}
+.hero-meta--4{grid-template-columns:repeat(4,auto);gap:20px 28px}
+@media (max-width:1180px){.hero-meta--4{grid-template-columns:repeat(2,auto)}}
+
+/* Etiquetas de estado */
+.badge--stock{background:var(--crudo);color:var(--carbon)}
+.badge--oferta{background:var(--amarillo);color:var(--carbon)}
+.card-price{font-size:16px}
+.card-meta{font-size:14px}
+
+/* Categorías: 6 tarjetas iguales (como las historias destacadas) */
+.cats--6{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cats--6 .cat{aspect-ratio:4/3;min-height:0;grid-row:auto}
+@media (max-width:980px){.cats--6{grid-template-columns:repeat(2,minmax(0,1fr))}.cats--6 .cat{aspect-ratio:4/5}}
+
+/* A medida: fondo claro */
+.custom{background:var(--crudo-2);color:var(--carbon)}
+.custom h2{color:var(--carbon)}
+.custom .eyebrow{color:var(--carbon-3)}
+.custom .lede{color:var(--muted)}
+.custom-steps{border-top-color:var(--line)}
+.custom-steps li{border-bottom-color:var(--line)}
+.custom-steps b{color:var(--carbon);opacity:.55}
+.custom-steps span{color:var(--muted)}
+
+/* Proyectos */
+.projects-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);align-items:center}
+.projects .lede{margin:20px 0 24px}
+.checklist{margin:0 0 32px;padding:0;list-style:none;display:grid;gap:10px}
+.checklist li{display:flex;gap:12px;align-items:center;font-size:16px}
+.checklist li::before{content:"";width:10px;height:10px;background:var(--amarillo);transform:rotate(45deg);flex:none}
+.projects-gallery{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:auto auto;gap:14px}
+.projects-gallery figure{margin:0;position:relative}
+.projects-gallery figure:first-child{grid-row:span 2}
+.projects-gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.projects-gallery figure:not(:first-child) img{aspect-ratio:5/4}
+.projects-gallery figcaption{position:absolute;left:10px;bottom:10px;background:var(--crudo);padding:6px 10px;font:italic 400 14px/1.2 var(--serif)}
+
+/* Materiales */
+.materials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.materials div{padding:24px 24px 4px 0}
+.materials div+div{padding-left:24px;border-left:1px solid var(--line)}
+.materials strong{display:block;font:400 clamp(28px,3vw,40px)/1 var(--serif);margin-bottom:10px}
+.materials p{color:var(--muted);font-size:15px}
+.process .dyes{margin-top:28px}
+
+/* Taller (único bloque oscuro de contenido) */
+.visit .sig{color:#fbf7ef}
+.visit .sig span{color:var(--on-dark-muted)}
+.visit h2 em{font-style:italic;color:var(--amarillo);font-weight:350}
+.visit-links .btn{min-height:48px}
+.visit-map{padding-bottom:clamp(56px,7vw,96px)}
+.visit-map iframe{width:100%;height:340px;border:0;display:block;filter:grayscale(.3)}
+
+/* Preguntas frecuentes */
+.faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,6vw,96px);align-items:start}
+.faq .lede{margin-top:14px}
+.faq .acc summary{font-size:17px}
+.faq .acc div p{color:var(--muted)}
+
+/* Ficha */
+.ask-note{margin:18px 0 8px;font-weight:600;font-size:15px}
+
+/* Botón flotante de WhatsApp (cuadrado, sin degradados) */
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:50;display:inline-flex;align-items:center;gap:10px;background:var(--amarillo);color:var(--carbon);padding:12px 16px;border-radius:2px;font:600 15px/1 var(--sans);box-shadow:0 10px 24px -10px #25221f66;transition:background-color .2s}
+.wa-float:hover{background:var(--pericon-2)}
+.wa-float .icon{width:22px;height:22px}
+.toast{bottom:84px}
+
+@media (max-width:980px){
+  .projects-grid,.faq-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .materials{grid-template-columns:1fr}
+  .materials div,.materials div+div{padding:18px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .wa-float span{display:none}
+  .wa-float{padding:14px}
+  .visit-map iframe{height:260px}
+  .hero-meta--4{display:none}
+}
+
+/* Ajustes tras revisión visual */
+.hero h1.h-xl{font-size:clamp(38px,4.3vw,64px);line-height:1}
+.hero-meta--4{grid-template-columns:repeat(2,auto);gap:18px 40px}
+.visit .sig span{display:block;margin-top:6px}
+.visit .sig{margin:22px 0 26px}
+.visit .wrap.visit-map{display:block;padding-top:0;padding-bottom:clamp(56px,7vw,96px)}
+@media (max-width:640px){.hero h1.h-xl{font-size:clamp(32px,8.8vw,40px)}}
+.brand b{white-space:nowrap}
+@media (max-width:640px){
+  .header .brand b{font-size:19px;letter-spacing:.02em}
+  .header .brand img{width:34px;height:34px}
+  .hero-actions .btn .icon{display:none}
+}
+@media (max-width:640px){
+  .tools a[aria-label="Cuenta"]{display:none}
+  .tools{gap:0}
+  .header .brand{gap:8px}
+}

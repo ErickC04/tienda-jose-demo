@@ -11,8 +11,11 @@ $fb = get_theme_mod( 'nia_facebook', '' );
 <footer class="footer on-dark">
 	<div class="wrap footer-top">
 		<div>
-			<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( nia_img( 'nia-logo.png' ) ); ?>" alt="" width="44" height="44"><span><b>NIA</b><small>Textiles José Mendoza</small></span></a>
-			<p>Taller de arte textil zapoteco. Tapetes, tapices y cojines tejidos a mano en Teotitlán del Valle, Oaxaca.</p>
+			<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( nia_img( 'nia-logo.png' ) ); ?>" alt="" width="44" height="44"><span><b>Nia Design</b><small>Textiles José Mendoza</small></span></a>
+			<p>Taller de arte textil zapoteco. Tapetes y tapices de lana, yute y algodón tejidos a mano en telar de pedal.</p>
+			<p style="margin-top:12px"><?php echo esc_html( get_theme_mod( 'nia_address', 'Prolongación de Buenavista 54, Teotitlán del Valle, Oaxaca, 70420' ) ); ?></p>
+			<?php $mail = get_theme_mod( 'nia_email', '' ); if ( $mail ) : ?><p style="margin-top:6px"><a href="mailto:<?php echo esc_attr( $mail ); ?>"><?php echo esc_html( $mail ); ?></a></p><?php endif; ?>
+			<?php if ( $ig ) : ?><p style="margin-top:6px"><a href="<?php echo esc_url( $ig ); ?>" target="_blank" rel="noopener">@josemendozatextiles · +12 mil seguidores</a></p><?php endif; ?>
 			<div class="social">
 				<?php if ( $ig ) : ?><a href="<?php echo esc_url( $ig ); ?>" target="_blank" rel="noopener" aria-label="Instagram"><?php echo nia_icon( 'ig' ); ?></a><?php endif; ?>
 				<?php if ( $fb ) : ?><a href="<?php echo esc_url( $fb ); ?>" target="_blank" rel="noopener" aria-label="Facebook"><?php echo nia_icon( 'fb' ); ?></a><?php endif; ?>
@@ -20,16 +23,19 @@ $fb = get_theme_mod( 'nia_facebook', '' );
 			</div>
 		</div>
 		<div><h3>Tienda</h3><ul>
-			<li><a href="<?php echo esc_url( nia_term_url( 'tapetes' ) ); ?>">Tapetes</a></li>
-			<li><a href="<?php echo esc_url( nia_term_url( 'tapices' ) ); ?>">Tapices</a></li>
-			<li><a href="<?php echo esc_url( nia_term_url( 'cojines' ) ); ?>">Cojines</a></li>
+			<li><a href="<?php echo esc_url( nia_term_url( 'listo-para-enviar' ) ); ?>">En stock</a></li>
+			<li><a href="<?php echo esc_url( nia_term_url( 'pasilleros' ) ); ?>">Pasilleros y corredores</a></li>
+			<li><a href="<?php echo esc_url( nia_term_url( 'circulares' ) ); ?>">Circulares</a></li>
 			<li><a href="<?php echo esc_url( nia_term_url( 'gran-formato' ) ); ?>">Gran formato</a></li>
-			<li><a href="<?php echo esc_url( nia_term_url( 'listo-para-enviar' ) ); ?>">Listos para enviar</a></li>
+			<li><a href="<?php echo esc_url( nia_term_url( 'tapices' ) ); ?>">Tapices</a></li>
+			<li><a href="<?php echo esc_url( nia_term_url( 'ofertas' ) ); ?>">Ofertas</a></li>
 		</ul></div>
 		<div><h3>Taller</h3><ul>
-			<li><a href="<?php echo esc_url( home_url( '/#taller' ) ); ?>">Visita el taller</a></li>
-			<li><a href="<?php echo esc_url( home_url( '/#proceso' ) ); ?>">Proceso</a></li>
 			<li><a href="<?php echo esc_url( home_url( '/#a-medida' ) ); ?>">A medida</a></li>
+			<li><a href="<?php echo esc_url( home_url( '/#proyectos' ) ); ?>">Proyectos</a></li>
+			<li><a href="<?php echo esc_url( home_url( '/#proceso' ) ); ?>">Materiales y proceso</a></li>
+			<li><a href="<?php echo esc_url( home_url( '/#taller' ) ); ?>">Visita el taller</a></li>
+			<li><a href="<?php echo esc_url( home_url( '/#preguntas' ) ); ?>">Preguntas frecuentes</a></li>
 			<?php if ( $ig ) : ?><li><a href="<?php echo esc_url( $ig ); ?>" target="_blank" rel="noopener">Instagram</a></li><?php endif; ?>
 		</ul></div>
 		<div><h3>Ayuda</h3><ul>
@@ -55,6 +61,7 @@ $fb = get_theme_mod( 'nia_facebook', '' );
 	</div>
 </footer>
 
+<a class="wa-float" <?php echo nia_wa_attrs( nia_wa_link( 'Hola José, vi la página de Nia Design y me interesa un tapete.' ) ); ?> aria-label="Escríbenos por WhatsApp"><?php echo nia_icon( 'wa', 'icon' ); ?><span>WhatsApp</span></a>
 <div class="toast" id="toast" role="status" hidden></div>
 <?php wp_footer(); ?>
 </body>

@@ -12,7 +12,7 @@
   --sans:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
   --pad:clamp(16px,4.4vw,72px);
   --max:1440px;
-  --greca:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16' viewBox='0 0 32 16'%3E%3Cpath d='M0 15h4v-4h4V7h4V3h8v4h4v4h4v4h4' fill='none' stroke='%23d3a34e' stroke-width='2'/%3E%3C/svg%3E");
+  --greca:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16' viewBox='0 0 32 16'%3E%3Cpath d='M0 15h4v-4h4V7h4V3h8v4h4v4h4v4h4' fill='none' stroke='%23ffcc29' stroke-width='2'/%3E%3C/svg%3E");
   --rombo:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23efe7da' stroke-width='1'%3E%3Cpath d='M18 2h4v4h4v4h4v4h4v4h4v4h-4v4h-4v4h-4v4h-4v4h-4v-4h-4v-4h-4v-4H6v-4H2v-4h4v-4h4v-4h4V6h4z'/%3E%3Cpath d='M20 13l7 7-7 7-7-7z'/%3E%3C/g%3E%3C/svg%3E");
 }
 *{box-sizing:border-box}
