@@ -50,8 +50,8 @@ add_action( 'wp_head', function () {
 	echo '<link rel="preload" href="' . esc_url( NIA_URI . '/assets/fonts/archivo.woff2' ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
 	/* Favicon del tema (si se sube un ícono en Personalizar › Identidad del sitio, ese manda) */
 	if ( ! has_site_icon() ) {
-		echo '<link rel="icon" href="' . esc_url( NIA_URI . '/assets/img/favicon.svg' ) . '" type="image/svg+xml">' . "\n";
 		echo '<link rel="icon" href="' . esc_url( NIA_URI . '/assets/img/favicon-32.png' ) . '" sizes="32x32" type="image/png">' . "\n";
+		echo '<link rel="icon" href="' . esc_url( NIA_URI . '/assets/img/favicon-192.png' ) . '" sizes="192x192" type="image/png">' . "\n";
 		echo '<link rel="apple-touch-icon" href="' . esc_url( NIA_URI . '/assets/img/apple-touch-icon.png' ) . '">' . "\n";
 	}
 }, 1 );

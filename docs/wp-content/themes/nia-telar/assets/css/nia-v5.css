@@ -19,3 +19,22 @@ h3,h4,.card-title,.card h3,.woocommerce-loop-product__title{font-family:var(--sa
 .hero-meta strong,.obra figcaption b,.price,.cat-name,.size-card strong{letter-spacing:0}
 /* Hero: las fotos van limpias */
 .collage figcaption{display:none}
+
+/* Hero en pantallas de escritorio bajas (laptops 1366×768, 720p): todo cabe en la pantalla
+   y el collage siempre llena la altura completa, sin hueco debajo */
+@media (min-width:981px){
+  .hero .wrap{height:auto;min-height:calc(100svh - 116px);max-height:none}
+  .hero .collage{height:auto;max-height:none;contain:size;align-self:stretch}
+  .hero-copy{padding-block:clamp(20px,4.5vh,56px)}
+  .hero h1.h-xl{font-size:clamp(34px,min(4.3vw,7.4vh),64px)}
+  .hero .lede{margin:clamp(12px,2.4vh,26px) 0 clamp(16px,3.4vh,34px)}
+  .hero-meta{margin-top:clamp(18px,4vh,48px);padding-top:clamp(12px,2.2vh,24px);gap:clamp(10px,2vh,20px) 36px}
+}
+@media (min-width:981px) and (max-height:760px){
+  .hero .lede{font-size:16px}
+  .hero-meta strong{font-size:20px}
+  .hero-meta div{font-size:13px}
+}
+@media (min-width:981px) and (max-height:660px){
+  .hero-meta{display:none}
+}
