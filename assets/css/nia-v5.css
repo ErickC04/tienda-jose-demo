@@ -1,0 +1,21 @@
+/* NIA v5 · tipografía propia (Gloock + Archivo), sin cursivas falsas, hero sin pies de foto */
+:root{
+  --serif:"Gloock", Georgia, "Times New Roman", serif;
+  --sans:"Archivo", "Segoe UI", system-ui, sans-serif;
+}
+body{font-family:var(--sans);font-stretch:100%}
+h1,h2,h3,h4{font-variation-settings:normal;letter-spacing:-.01em;font-weight:400}
+/* Gloock solo tiene un peso: el énfasis va con color o subrayado, no con cursiva sintética */
+h1 em,h2 em,h3 em,.hero h1 em,.story h2 em,.visit h2 em,.projects-top h2 em,.faq-side h2 em{font-style:normal;font-weight:400}
+/* Títulos chicos de tarjetas, botones y etiquetas en Archivo: se lee mejor que un serif de exhibición */
+h3,h4,.card-title,.card h3,.woocommerce-loop-product__title{font-family:var(--sans);font-weight:600;letter-spacing:-.005em}
+.btn,.button,.eyebrow,.crumbs,.facet-title,.badge{font-family:var(--sans)}
+.btn{font-weight:600;letter-spacing:.005em}
+.eyebrow{font-weight:600;letter-spacing:.14em}
+/* Gloock ya es compacta: sin el interletrado negativo que traía Fraunces */
+.h-xl,.h-l,.h-m,h1,h2{letter-spacing:-.004em}
+.h-xl{line-height:1.05}
+.h-l{line-height:1.07}
+.hero-meta strong,.obra figcaption b,.price,.cat-name,.size-card strong{letter-spacing:0}
+/* Hero: las fotos van limpias */
+.collage figcaption{display:none}

@@ -72,7 +72,6 @@ $fb = get_theme_mod( 'nia_facebook', '' );
 </dialog>
 <?php endif; ?>
 
-<a class="wa-float" <?php echo nia_wa_attrs( nia_wa_link( 'Hola José, vi la página de Nia Design y me interesa un tapete.' ) ); ?> aria-label="Escríbenos por WhatsApp"><?php echo nia_icon( 'wa', 'icon' ); ?><span>WhatsApp</span></a>
 <div class="toast" id="toast" role="status" hidden></div>
 <?php wp_footer(); ?>
 </body>

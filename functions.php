@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'NIA_VERSION', '1.4.0' );
+define( 'NIA_VERSION', '1.5.0' );
 define( 'NIA_URI', get_template_directory_uri() );
 define( 'NIA_DIR', get_template_directory() );
 
@@ -38,16 +38,22 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'nia-v2', NIA_URI . '/assets/css/nia-v2.css', array( 'nia-woo' ), NIA_VERSION );
 	wp_enqueue_style( 'nia-v3', NIA_URI . '/assets/css/nia-v3.css', array( 'nia-v2' ), NIA_VERSION );
 	wp_enqueue_style( 'nia-v4', NIA_URI . '/assets/css/nia-v4.css', array( 'nia-v3' ), NIA_VERSION );
-	$fonts = '@font-face{font-family:"Fraunces";src:url(' . NIA_URI . '/assets/fonts/fraunces.woff2) format("woff2");font-weight:300 700;font-display:swap}'
-		. '@font-face{font-family:"Fraunces";src:url(' . NIA_URI . '/assets/fonts/fraunces-italic.woff2) format("woff2");font-weight:300 700;font-style:italic;font-display:swap}'
-		. '@font-face{font-family:"Instrument Sans";src:url(' . NIA_URI . '/assets/fonts/instrument-sans.woff2) format("woff2");font-weight:400 700;font-display:swap}';
+	wp_enqueue_style( 'nia-v5', NIA_URI . '/assets/css/nia-v5.css', array( 'nia-v4' ), NIA_VERSION );
+	$fonts = '@font-face{font-family:"Gloock";src:url(' . NIA_URI . '/assets/fonts/gloock.woff2) format("woff2");font-weight:400;font-display:swap}'
+		. '@font-face{font-family:"Archivo";src:url(' . NIA_URI . '/assets/fonts/archivo.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}';
 	wp_add_inline_style( 'nia', $fonts );
 	wp_enqueue_script( 'nia', NIA_URI . '/assets/js/nia.js', array(), NIA_VERSION, true );
 } );
 
 add_action( 'wp_head', function () {
-	echo '<link rel="preload" href="' . esc_url( NIA_URI . '/assets/fonts/fraunces.woff2' ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
-	echo '<link rel="preload" href="' . esc_url( NIA_URI . '/assets/fonts/instrument-sans.woff2' ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+	echo '<link rel="preload" href="' . esc_url( NIA_URI . '/assets/fonts/gloock.woff2' ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+	echo '<link rel="preload" href="' . esc_url( NIA_URI . '/assets/fonts/archivo.woff2' ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+	/* Favicon del tema (si se sube un ícono en Personalizar › Identidad del sitio, ese manda) */
+	if ( ! has_site_icon() ) {
+		echo '<link rel="icon" href="' . esc_url( NIA_URI . '/assets/img/favicon.svg' ) . '" type="image/svg+xml">' . "\n";
+		echo '<link rel="icon" href="' . esc_url( NIA_URI . '/assets/img/favicon-32.png' ) . '" sizes="32x32" type="image/png">' . "\n";
+		echo '<link rel="apple-touch-icon" href="' . esc_url( NIA_URI . '/assets/img/apple-touch-icon.png' ) . '">' . "\n";
+	}
 }, 1 );
 
 /* Sin el script de emojis de WordPress (más ligero) */

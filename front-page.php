@@ -85,8 +85,8 @@ if ( function_exists( 'wc_get_products' ) ) {
 			<h1 class="h-xl" id="hero-title">Tapetes zapotecos de diseño, tejidos <em>a mano en Teotitlán del Valle.</em></h1>
 			<p class="lede"><span class="lede-long">Lana, yute y algodón teñidos con tintes naturales en telar de pedal. Piezas únicas y diseños a medida para casas, hoteles y proyectos de interiorismo.</span><span class="lede-short">Lana, yute y algodón con tintes naturales, tejidos en telar de pedal.</span></p>
 			<div class="hero-actions">
-				<a class="btn btn--pericon" <?php echo nia_wa_attrs( $wa_q ); ?>><?php echo nia_icon( 'wa', 'icon' ); ?><span class="lbl-long">Cotizar mi diseño por WhatsApp</span><span class="lbl-short">Cotizar diseño</span></a>
-				<a class="btn btn--light" href="<?php echo esc_url( $stock ); ?>">Ver piezas en stock</a>
+				<a class="btn btn--pericon" href="<?php echo esc_url( nia_term_url( 'tapetes', $shop ) ); ?>">Ver tapetes <span class="arrow">→</span></a>
+				<a class="btn btn--light" href="#a-medida"><span class="lbl-long">Encarga una pieza a medida</span><span class="lbl-short">Encarga a medida</span></a>
 			</div>
 			<div class="hero-meta hero-meta--4">
 				<div><strong>Telar de pedal</strong>Tejido a mano</div>
@@ -99,7 +99,7 @@ if ( function_exists( 'wc_get_products' ) ) {
 			<?php foreach ( $collage as $col ) : ?>
 				<div class="collage-col"><div class="collage-track"><div class="collage-set">
 					<?php foreach ( $col as $p ) : ?>
-						<figure class="polaroid<?php echo $p[2] ? ' tall' : ''; ?>"><img src="<?php echo esc_url( nia_img( $p[0] ) ); ?>" alt="<?php echo esc_attr( $p[1] ); ?>" width="460" height="575"><figcaption><?php echo esc_html( $p[1] ); ?></figcaption></figure>
+						<figure class="polaroid<?php echo $p[2] ? ' tall' : ''; ?>"><img src="<?php echo esc_url( nia_img( $p[0] ) ); ?>" alt="<?php echo esc_attr( $p[1] ); ?>" width="460" height="575"></figure>
 					<?php endforeach; ?>
 				</div></div></div>
 			<?php endforeach; ?>
@@ -318,9 +318,6 @@ if ( function_exists( 'wc_get_products' ) ) {
 				<?php if ( $ig ) : ?><a class="link" href="<?php echo esc_url( $ig ); ?>" target="_blank" rel="noopener">Ver el taller en Instagram</a><?php endif; ?>
 			</div>
 		</div>
-	</div>
-	<div class="wrap visit-map">
-		<iframe title="Mapa del taller en Teotitlán del Valle" src="https://maps.google.com/maps?q=<?php echo rawurlencode( $address ); ?>&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</div>
 </section>
 
