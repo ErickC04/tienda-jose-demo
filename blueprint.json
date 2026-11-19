@@ -39,7 +39,7 @@
     },
     {
       "step": "runPHP",
-      "code": "<?php require_once '/wordpress/wp-load.php'; echo nia_demo_install();"
+      "code": "<?php require_once '/wordpress/wp-load.php'; echo nia_demo_install(); update_user_meta( 1, 'show_admin_bar_front', 'false' );"
     }
   ]
 }
